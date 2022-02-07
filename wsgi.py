@@ -1,12 +1,14 @@
 from ariadne.server import Server
 from ariadne.util import setup_logging
 from ariadne.contrib.spacy import SpacyNerClassifier
+from ariadne.contrib.HuggingFaceTransformer import HuggingFaceClassifier
 
 setup_logging()
 
 server = Server()
 
 server.add_classifier("spacy_ner", SpacyNerClassifier("en_core_web_sm"))
+server.add_classifier("HuggingFace", HuggingFaceClassifier("ghadeermobasher/BC5CDR-Chemical-Disease-balanced-pubmedbert"))
 # server.add_classifier("spacy_pos", SpacyPosClassifier("en_core_web_sm"))
 # server.add_classifier("sklearn_sentence", SklearnSentenceClassifier())
 # server.add_classifier("jieba", JiebaSegmenter())
